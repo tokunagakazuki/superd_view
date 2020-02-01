@@ -1,8 +1,8 @@
 %h2 gmap
 #map
 :css
-  #map {
-    height: 800px;
+  #map{
+    height: 400px;
   }
 :javascript
   function initMap(){
@@ -11,4 +11,5 @@
     zoom: 8
     });
   }
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Uzn1rY096L54nIuIRJNMw8IF4_vRdXc&callback=initMap"}
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_KEY']}&callback=initMap"}
+

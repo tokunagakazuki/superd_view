@@ -1,0 +1,14 @@
+.UserForm {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  .UserContent {
+    // background-color: red;
+    padding: 80px;
+    text-align: center;
+    &__title {
+    font-size: 50px;
+    }
+  }
+  
+}
