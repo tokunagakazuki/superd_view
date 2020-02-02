@@ -1,0 +1,13 @@
+.formpage
+  = form_with model: @post ,local: true do |f|
+    .formpage_content
+      .formpage_content__title
+        タイトル
+        %br
+        = f.text_field :title
+      .formpage_content__description
+        説明
+        %br
+        = f.text_area :description
+      .formpage_content__btn
+        = f.submit '投稿する'
