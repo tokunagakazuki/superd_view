@@ -1,0 +1,18 @@
+body {
+  background: linear-gradient(90deg, #808080, rgb(20, 55, 90));
+  height: 100%;
+  width: 100%;
+}
+
+.formpage {
+  width: 100vw;
+  height: 100vh;
+  .formpage_content {
+    text-align: center;
+    padding: 200px;
+    font-size: 2rem;
+    &__title {
+      
+    }
+  }
+}
