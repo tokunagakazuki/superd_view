@@ -16,6 +16,12 @@ body {
     }
   }
 }
-// .hidden {
-//   display: none;
-// }
+.hidden {
+  display: none;
+}
+.image-file {
+  margin: auto;
+  width: 250px;
+  background-color: #808080;
+  cursor: pointer;
+}

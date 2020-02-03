@@ -1,0 +1,13 @@
+.card
+  - @posts.each do |post|
+    .card__contant
+      .card__contant-title
+        = post.title
+      .card__contant-main
+        .card__contant-main-image
+          = image_tag post.image.url, class: "post_photo"
+        .card__contant-main-description
+          = post.description
+        - post.tag_list.each do |tag|
+          = tag
+= paginate(@posts)
