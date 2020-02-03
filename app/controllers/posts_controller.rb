@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.page(params[:page]).per(9)
+    if params[:tag_name]
+      @posts = @posts.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def new

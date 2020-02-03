@@ -9,5 +9,6 @@
         .card__contant-main-description
           = post.description
         - post.tag_list.each do |tag|
-          = tag
+          = link_to tag, posts_path(tag_name: tag), class: "text-white"
+        = link_to post.user.name, user_path(post.user.id)
 = paginate(@posts)
