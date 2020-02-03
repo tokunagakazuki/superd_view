@@ -14,7 +14,7 @@
       %ul.navbar__menu
         - if user_signed_in?
           %li.navbar__menu--item
-            = link_to current_user.name, new_post_path
+            = link_to current_user.name, user_path(current_user.id)
           %li.navbar__menu--item
             = link_to "投稿一覧", posts_path
           %li.navbar__menu--item

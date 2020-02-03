@@ -5,6 +5,10 @@
         タイトル
         %br
         = f.text_field :title
+      .formpage_content__title
+        画像投稿
+        %br
+        = f.file_field :image, class: 'hidden'
       .formpage_content__description
         説明
         %br

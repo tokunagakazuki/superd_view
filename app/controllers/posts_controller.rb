@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(9)
   end
 
   def new
@@ -20,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:description).merge(user_id: current_user.id)
+    params.require(:post).permit(:title,:description,:image).merge(user_id: current_user.id)
   end
 end
