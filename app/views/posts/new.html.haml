@@ -18,7 +18,7 @@
         = f.text_area :description
       -#  #タグ入力フォームを追加
       .form-group 
-        = f.label :tag_list
+        = f.label 'タグ'
         %br
         = f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control"
       .formpage_content__btn
