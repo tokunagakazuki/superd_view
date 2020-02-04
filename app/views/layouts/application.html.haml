@@ -4,8 +4,8 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Superd_view
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
   .navbar
     .navbar__logo
@@ -14,7 +14,7 @@
       %ul.navbar__menu
         - if user_signed_in?
           %li.navbar__menu--item
-            = link_to current_user.name, new_post_path
+            = link_to current_user.name, user_path(current_user.id)
           %li.navbar__menu--item
             = link_to "投稿一覧", posts_path
           %li.navbar__menu--item

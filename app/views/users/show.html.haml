@@ -1,0 +1,8 @@
+.postspage
+  .postspage__main
+    - if current_user.id == @user.id
+      自分の投稿
+    - else
+      #{@user.name}さんの投稿
+  .postspage__content
+    = render partial: "posts/post"

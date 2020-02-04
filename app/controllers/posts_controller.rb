@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at DESC").page(params[:page]).per(9)
+    if params[:tag_name]
+      @posts = @posts.tagged_with("#{params[:tag_name]}").order("created_at DESC")
+    end
   end
 
   def new
@@ -20,6 +23,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:description).merge(user_id: current_user.id)
+    params.require(:post).permit(:title,:description,:image, :tag_list).merge(user_id: current_user.id)
   end
 end

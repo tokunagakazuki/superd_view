@@ -5,9 +5,21 @@
         タイトル
         %br
         = f.text_field :title
+      .formpage_content__title
+        画像投稿
+        %br
+        %label
+          .image-file
+            ファイルを選択
+            = f.file_field :image, class: 'hidden'
       .formpage_content__description
         説明
         %br
         = f.text_area :description
+      -#  #タグ入力フォームを追加
+      .form-group 
+        = f.label 'タグ'
+        %br
+        = f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control"
       .formpage_content__btn
         = f.submit '投稿する'
