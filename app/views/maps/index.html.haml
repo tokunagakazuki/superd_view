@@ -6,8 +6,9 @@
 :javascript
   function initMap(){
     let map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    center: {lat: 35.669662, lng: 139.694403},
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    zoom: 4
     });
   }
 %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_KEY']}&callback=initMap"}
