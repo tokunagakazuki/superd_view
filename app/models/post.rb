@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   after_validation :geocode
   acts_as_taggable
   validates :title,:image,:description, presence: true
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 
   def self.search(search)
     if search
