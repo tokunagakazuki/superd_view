@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20200205125727) do
     t.datetime "updated_at", null: false
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
-    t.integer "likes_count"
+    t.integer "likes_count", default: 0
     t.index ["description"], name: "index_posts_on_description", length: { description: 32 }
     t.index ["title"], name: "index_posts_on_title", length: { title: 32 }
     t.index ["user_id"], name: "index_posts_on_user_id"
