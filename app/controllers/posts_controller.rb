@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to maps_path
     else
       redirect_to new_post_path
     end
