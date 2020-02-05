@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     marker.lat post.latitude
     marker.lng post.longitude
     marker.infowindow post.title
-    marker.infowindow render_to_string(partial: 'shard/infowindow', locals: { post: post })
+    marker.infowindow render_to_string(partial: 'shared/infowindow', locals: { post: post })
     end
   end
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :posts do
     resources :searches, only: :index
   end
+  resources :relationships, only: [:create, :destroy]
   resources :maps, only: [:index]
   get '/map_request', to: 'maps#map', as: 'map_request'
   resources :users, only: [:show]
