@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200205091409) do
+ActiveRecord::Schema.define(version: 20200205125727) do
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -21,6 +30,7 @@ ActiveRecord::Schema.define(version: 20200205091409) do
     t.datetime "updated_at", null: false
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
+    t.integer "likes_count"
     t.index ["description"], name: "index_posts_on_description", length: { description: 32 }
     t.index ["title"], name: "index_posts_on_title", length: { title: 32 }
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -77,6 +87,8 @@ ActiveRecord::Schema.define(version: 20200205091409) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
