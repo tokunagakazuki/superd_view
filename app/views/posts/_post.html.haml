@@ -1,14 +1,15 @@
 .card
   - @posts.each do |post|
-    .card__contant
-      .card__contant-title
-        = post.title
-      .card__contant-main
-        .card__contant-main-image
-          = image_tag post.image.url, class: "post_photo"
-        .card__contant-main-description
-          = post.description
-        - post.tag_list.each do |tag|
-          = link_to tag, posts_path(tag_name: tag), class: "text-white"
-        = link_to post.user.name, user_path(post.user.id)
-        = render 'likes/like_links', post: post
+    = link_to(post, class: "post-link", remote: true) do
+      .card__contant
+        .card__contant-title
+          = post.title
+        .card__contant-main
+          .card__contant-main-image
+            = image_tag post.image.url, class: "post_photo"
+          .card__contant-main-description
+            = post.description
+          - post.tag_list.each do |tag|
+            = link_to tag, posts_path(tag_name: tag), class: "text-white"
+          = link_to post.user.name, user_path(post.user.id)
+          = render 'likes/like_links', post: post

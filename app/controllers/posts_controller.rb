@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all.order("created_at DESC").page(params[:page]).per(9)
     if params[:tag_name]
@@ -17,6 +18,24 @@ class PostsController < ApplicationController
     else
       redirect_to new_post_path
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
+  end
+
+  def edit
+    
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
 
