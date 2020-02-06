@@ -18,6 +18,12 @@
           = link_to tag, posts_path(tag_name: tag), class: "text-white"
         = @post.user.name
         #map{:style => "width: 50%; height: 50vh;"}
+        .form
+          = form_for [@post, @comment] do |f|
+            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+            = f.submit 'Send', class: 'form__submit'
+
+
       -# .picture-con
       -#   - @post.pictures.each do |picture|
       -#     = image_tag picture.url, class:"post-picture"
@@ -72,7 +78,6 @@
       -#               class: "request-login__link"                  |
       -#       #comment-error
       -#         = render 'layouts/error_message', object: @comment
-      -#       #comments_area
       -#         = render partial: 'comments/comment', collection: @comments
 -# = javascript_include_tag('post_close')
 
@@ -94,4 +99,3 @@
     handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
     handler.getMap().setZoom(4);
   });
-raw @hash.to_json

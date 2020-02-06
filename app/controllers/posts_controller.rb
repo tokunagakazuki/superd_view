@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:edit, :show]
 
   def index
     @posts = Post.all.order("created_at DESC").page(params[:page]).per(9)
@@ -21,9 +22,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments
+    @post = Post.find(params[:id])
+    # @post = "a"
+    # @comment = "a"
+    # @comments = @post.comments
   end
 
   def edit
@@ -40,6 +43,12 @@ class PostsController < ApplicationController
 
 
   private
+
+  def set_post
+    @comment = Comment.new
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+  end
 
   def post_params
     params.require(:post).permit(:title,:description,:image, :tag_list).merge(user_id: current_user.id)
