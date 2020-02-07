@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+<<<<<<< Updated upstream
   # before_action :set_post
 
   def create
@@ -19,6 +20,14 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
+=======
+  def create
+    Comment.create(comment_params)
+  end
+
+  private
+  def
+>>>>>>> Stashed changes
     params.require(:comment).permit(:content).merge(user_id: current_user.id, post_id: params[:post_id])
   end
 end

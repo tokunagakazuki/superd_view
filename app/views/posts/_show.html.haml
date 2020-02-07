@@ -18,12 +18,15 @@
           = link_to tag, posts_path(tag_name: tag), class: "text-white"
         = @post.user.name
         #map{:style => "width: 50%; height: 50vh;"}
+<<<<<<< Updated upstream
         .form
           = form_for [@post, @comment] do |f|
             = f.text_field :content, class: 'form__message', placeholder: 'type a message'
             = f.submit 'Send', class: 'form__submit'
 
 
+=======
+>>>>>>> Stashed changes
       -# .picture-con
       -#   - @post.pictures.each do |picture|
       -#     = image_tag picture.url, class:"post-picture"
@@ -78,6 +81,10 @@
       -#               class: "request-login__link"                  |
       -#       #comment-error
       -#         = render 'layouts/error_message', object: @comment
+<<<<<<< Updated upstream
+=======
+      -#       #comments_area
+>>>>>>> Stashed changes
       -#         = render partial: 'comments/comment', collection: @comments
 -# = javascript_include_tag('post_close')
 
@@ -98,4 +105,9 @@
     handler.fitMapToBounds();
     handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
     handler.getMap().setZoom(4);
+<<<<<<< Updated upstream
   });
+=======
+  });
+raw @hash.to_json
+>>>>>>> Stashed changes
