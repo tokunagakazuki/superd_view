@@ -18,10 +18,18 @@
           = link_to tag, posts_path(tag_name: tag), class: "text-white"
         = @post.user.name
         #map{:style => "width: 50%; height: 50vh;"}
-        .form
-          = form_for [@post, @comment] do |f|
-            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-            = f.submit 'Send', class: 'form__submit'
+        -# .form
+        -#   = form_for [@post, @comment] do |f|
+        -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        -#     = f.submit 'Send', class: 'form__submit'
+        .comment-box
+          = render 'comments/form', comment: @comment, post: @post
+        #comments_area
+          = render partial: 'comments/comment', collection: @comments
+        %span.comment_count.count
+          = render 'comments/count', post: @post
+
+
 
 
       -# .picture-con
