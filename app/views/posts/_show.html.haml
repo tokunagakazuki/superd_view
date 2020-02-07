@@ -28,10 +28,6 @@
           = render partial: 'comments/comment', collection: @comments
         %span.comment_count.count
           = render 'comments/count', post: @post
-
-
-
-
       -# .picture-con
       -#   - @post.pictures.each do |picture|
       -#     = image_tag picture.url, class:"post-picture"
@@ -107,3 +103,4 @@
     handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
     handler.getMap().setZoom(4);
   });
+

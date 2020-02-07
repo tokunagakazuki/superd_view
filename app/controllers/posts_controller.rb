@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+<<<<<<< Updated upstream
   before_action :set_post, only: [:edit, :show]
+=======
+>>>>>>> Stashed changes
 
   def index
     @posts = Post.all.order("created_at DESC").page(params[:page]).per(9)
@@ -22,11 +25,17 @@ class PostsController < ApplicationController
   end
 
   def show
+<<<<<<< Updated upstream
     @comment = Comment.new
     @post = Post.find(params[:id])
     # @post = "a"
     # @comment = "a"
     # @comments = @post.comments
+=======
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
+>>>>>>> Stashed changes
   end
 
   def edit
