@@ -10,27 +10,8 @@
     %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
 
   %body
-  .navbar
-    .navbar__logo
-      = link_to "SuperdView", root_path
-    .navbar__menu
-      %ul.navbar__menu
-        - if user_signed_in?
-          %li.navbar__menu--item
-            = link_to current_user.name, user_path(current_user.id)
-          %li.navbar__menu--item
-            = link_to "投稿一覧", posts_path
-          %li.navbar__menu--item
-            = link_to "世界地図", maps_path
-          %li.navbar__menu--item
-            = link_to "新規投稿", new_post_path
-          %li.navbar__menu--item
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
-          %li.navbar__menu--item
-            = link_to "新規登録", new_user_registration_path
-          %li.navbar__menu--item
-            = link_to "ログイン", new_user_session_path
+  = render "layouts/header"
   = yield
+  = render "layouts/footer"
   #modal-container
 
