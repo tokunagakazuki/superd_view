@@ -10,24 +10,27 @@
             -# %li.edit-btn__list__item= link_to "編集", edit_post_path(@post)
             -# %li.edit-btn__list__item= link_to "投稿を削除する",                                                                              |
               -# = post_path(@post, post_id: @post.id), method: "delete", remote: true, data: {confirm: "削除しますか？"} |
-      %h2
-        = @post.title
-        = image_tag @post.image.url
-        = @post.description
-        - @post.tag_list.each do |tag|
-          = link_to tag, posts_path(tag_name: tag), class: "text-white"
-        = @post.user.name
-        #test{:style => "width: 50%; height: 50vh;"}
-        -# .form
-        -#   = form_for [@post, @comment] do |f|
-        -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-        -#     = f.submit 'Send', class: 'form__submit'
-        .comment-box
-          = render 'comments/form', comment: @comment, post: @post
-        #comments_area
-          = render partial: 'comments/comment', collection: @comments
-        %span.comment_count.count
-          = render 'comments/count', post: @post
+      .show
+        .show__title
+          = @post.title
+        .show__image
+          = image_tag @post.image.url
+        .show__description
+          = @post.description
+          - @post.tag_list.each do |tag|
+            = link_to tag, posts_path(tag_name: tag), class: "text-white"
+          = @post.user.name
+          #test{:style => "width: 50%; height: 50vh;"}
+          -# .form
+          -#   = form_for [@post, @comment] do |f|
+          -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          -#     = f.submit 'Send', class: 'form__submit'
+          .comment-box
+            = render 'comments/form', comment: @comment, post: @post
+          #comments_area
+            = render partial: 'comments/comment', collection: @comments
+          %span.comment_count.count
+            = render 'comments/count', post: @post
       -# .picture-con
       -#   - @post.pictures.each do |picture|
       -#     = image_tag picture.url, class:"post-picture"
