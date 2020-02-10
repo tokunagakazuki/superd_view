@@ -13,6 +13,7 @@
       .show
         .show__title
           = @post.title
+          = render 'likes/like_links', post: @post
         .show__image
           = image_tag @post.image.url
         .show__description
@@ -28,9 +29,11 @@
           .comment-box
             = render 'comments/form', comment: @comment, post: @post
           #comments_area
+            コメント一覧
             = render partial: 'comments/comment', collection: @comments
           %span.comment_count.count
             = render 'comments/count', post: @post
+          -# = render 'likes/like_links', post: @post
       -# .picture-con
       -#   - @post.pictures.each do |picture|
       -#     = image_tag picture.url, class:"post-picture"

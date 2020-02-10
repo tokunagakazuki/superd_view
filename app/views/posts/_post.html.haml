@@ -3,12 +3,12 @@
     = link_to(post, class: "post-link", remote: true) do
       .card__contant
         .card__contant-title
-          = post.title
+          =truncate(post.title,length: 11)
         .card__contant-main
           .card__contant-main-image
             = image_tag post.image.url, class: "post_photo"
           .card__contant-main-description
-            = post.description
+            = truncate(post.description,length: 11)
           - post.tag_list.each do |tag|
             = link_to tag, posts_path(tag_name: tag), class: "text-white"
           = link_to post.user.name, user_path(post.user.id)
