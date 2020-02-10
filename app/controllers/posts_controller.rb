@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if params[:tag_name]
       @posts = @posts.tagged_with("#{params[:tag_name]}").order("created_at DESC")
     end
-    @tags = ActsAsTaggableOn::Tag.most_used(10)
+    @tags = ActsAsTaggableOn::Tag.most_used(8)
   end
 
   def new
