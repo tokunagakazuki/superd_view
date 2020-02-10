@@ -6,7 +6,7 @@
   .popular-tags__lists
     人気のタグ
     - @tags.each do |tag|
-      = link_to tag, posts_path(tag_name: tag.name),class: "popular-tags__lists--item"
+      = link_to tag, posts_path(tag_name: tag.name),class: "tags--item"
   .postspage__main
     投稿一覧
   .postspage__content
