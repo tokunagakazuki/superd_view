@@ -1,6 +1,6 @@
 .card
   - @posts.each do |post|
-    = link_to(post, class: "post-link", remote: true) do
+    = link_to( post, class: "post-link", remote: true) do
       .card__contant
         .card__contant-title
           =truncate(post.title,length: 11)
