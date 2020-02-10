@@ -3,7 +3,7 @@
     - if current_user.id == @user.id
       自分の投稿
     - else
-      #{@user.name}さんの投稿
+      = "#{@user.name}さんの投稿"
   = render "relationships/follow_button", {user: @user}
   .postspage__content
     = render partial: "posts/post"

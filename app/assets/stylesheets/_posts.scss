@@ -47,6 +47,21 @@
   height: 300px;
 }
 
+
+.popular-tags {
+  text-align: center;
+  &__lists {
+  font-size: 3rem;
+  color: $gray;
+  }
+  &__items {
+    margin: 5rem;
+    &--parts {
+      margin: 0.8rem;
+    }
+  }
+}
+
 .tags--item {
   font-size: 1em;
   font-weight: bold;
