@@ -15,3 +15,5 @@ RUN gem install bundler
 RUN bundle install
 
 ADD . /superd_view
+
+RUN mkdir -p tmp/sockets
