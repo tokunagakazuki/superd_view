@@ -14,10 +14,13 @@ services:
     tty: true          #コンテナ上でbinding.pryするために必要
     stdin_open: true   #コンテナ上でbinding.pryするために必要
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/superd_view    #ローカルのディレクトリをコンテナ上にマウント
       - bundle:/usr/local/bundle    #bundle installした後buildし直さなくてよくなる
+      - public-data:/superd_view/public
+      - tmp-data:/superd_view/tmp
+      - log-data:/superd_view/log
     ports:
       - "3000:3000"
     links:
