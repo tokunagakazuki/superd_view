@@ -2,25 +2,26 @@
   = form_with model: @post ,local: true do |f|
     .formpage_content
       .formpage_content__title
-        タイトル
-        %br
-        = f.text_field :title
-      .formpage_content__title
+        場所 
+        .formpage_content__title--asterisk
+          (国名や地名どちらでもOK!)
+        = f.text_field :title,class: 'form__title', placeholder: '例）アメリカ'
+      .formpage_content__image
         画像投稿
         %br
-        %label
-          .image-file
-            ファイルを選択
-            = f.file_field :image, class: 'hidden'
-        .preview
+      %label
+        .image-file
+          ファイルを選択
+          = f.file_field :image, class: 'hidden'
+          .preview
       .formpage_content__description
-        説明
+        説明、紹介文など
         %br
-        = f.text_area :description
+        = f.text_area :description, class: 'description_content', placeholder: '例）アメリカのグランドキャニオン国立公園です！！'
       -#  #タグ入力フォームを追加
       .form-group 
         = f.label 'タグ'
         %br
-        = f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control"
+        = f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", placeholder: '注）二つ以上入れる場合は,で区切ってください'
       .formpage_content__btn
-        = f.submit '投稿する'
+        = f.submit '投稿する', class: 'form-btn'
