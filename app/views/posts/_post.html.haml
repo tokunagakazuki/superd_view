@@ -1,7 +1,7 @@
 .card
   - @posts.each do |post|
-    = link_to( post, class: "post-link", remote: true) do
-      .card__contant
+    .card__contant
+      = link_to( post, remote: true) do
         .card__contant-title
           =truncate(post.title,length: 11)
         .card__contant-main
@@ -9,7 +9,10 @@
             = image_tag post.image.url, class: "post_photo"
           .card__contant-main-description
             = truncate(post.description,length: 11)
-          - post.tag_list.each do |tag|
-            = link_to tag, posts_path(tag_name: tag),class: "tags--item"
-          = link_to post.user.name, user_path(post.user.id)
-          = render 'likes/like_links', post: post
+      .card__contant-main-tags
+        - post.tag_list.each do |tag|
+          = link_to tag, posts_path(tag_name: tag),class: "tags--item"
+      .post_information
+        = render 'likes/like_links', post: post
+        .post_information__user
+          = link_to post.user.name, user_path(post.user.id), class: 'post_information__user--btn'

@@ -3,4 +3,4 @@
     .infowindow_content__title
       = post.title
     = image_tag post.image.url, class: 'infowindow-img-top'
-    = link_to "マップを開く" ,"https://maps.google.co.jp/maps?q=loc:#{post.latitude},#{post.longitude}&iwloc=J",target: "_blank"
+    = link_to "詳しくみる" ,"https://maps.google.co.jp/maps?q=loc:#{post.latitude},#{post.longitude}&iwloc=J",target: "_blank"

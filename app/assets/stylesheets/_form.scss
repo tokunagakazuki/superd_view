@@ -1,3 +1,13 @@
+@mixin blue-btn() {
+  border-radius: 10%;
+      display: inline-block;
+      padding: 0.6em 2em;
+      margin: 0 0 1em;
+      background-color: #1F1070;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease 0s;
+}
 body {
   background: linear-gradient(90deg, #808080, rgb(4, 29, 53));
   height: 100%;
@@ -53,18 +63,14 @@ body {
       margin: auto;
       font-size: 2px;
     }
-    .form-btn {
-      border-radius: 10%;
-      display: inline-block;
-      padding: 0.6em 2em;
-      margin: 0 0 1em;
-      background-color: #1F1070;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.3s ease 0s;
-    }
+    // .form-btn {
+    //   @include blue-btn();
+    // }
     .form-btn:hover {
       opacity: 0.8;
     }
   }
+}
+.form-btn {
+  @include blue-btn();
 }
