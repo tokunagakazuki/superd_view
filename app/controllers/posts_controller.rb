@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :show]
+  before_action :set_post, only: [:edit, :update, :show, :destroy]
 
 
   def index
@@ -17,8 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to maps_path
+      flash[:notice] = "投稿しました"
+      redirect_to posts_path
     else
+      flash[:alert] = "投稿に失敗しました"
       redirect_to new_post_path
     end
   end
@@ -30,15 +32,18 @@ class PostsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
-
+    @post.update(post_params)
+    flash[:notice] = "投稿の更新ができました"
+    redirect_to posts_path
   end
 
   def destroy
-
+    @post.destroy
+    flash[:alert] = "投稿を削除しました"
+    redirect_to posts_path
   end
 
 

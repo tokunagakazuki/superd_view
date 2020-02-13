@@ -4,24 +4,24 @@
       #close.close-btn
         .batsu
       - if  current_user?(@post.user)
-        .edit-btn
-          .edit-btn__v
-          %ul.edit-btn__list
-            -# %li.edit-btn__list__item= link_to "編集", edit_post_path(@post)
-            -# %li.edit-btn__list__item= link_to "投稿を削除する",                                                                              |
-              -# = post_path(@post, post_id: @post.id), method: "delete", remote: true, data: {confirm: "削除しますか？"} |
+        %ul.edit-btn__list
+          %li.edit-btn__list__item
+            = link_to "編集", edit_post_path(@post)
+          %li.edit-btn__list__item
+            = link_to "投稿を削除する" ,post_path(@post), method: "delete", data: {confirm: "削除しますか？"}
       .show
         .show__title
           = @post.title
           = render 'likes/like_links', post: @post
         .show__image
           = image_tag @post.image.url
-        .show__description
-          = @post.description
           - @post.tag_list.each do |tag|
             = link_to tag, posts_path(tag_name: tag), class: "text-white"
           = @post.user.name
-          #test{:style => "width: 50%; height: 50vh;"}
+        .show__sub
+          #show_map{:style => "width: 50%; height: 50vh;"}
+          .show__description
+            = @post.description
           -# .form
           -#   = form_for [@post, @comment] do |f|
           -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
@@ -95,7 +95,7 @@
   handler = Gmaps.build('Google');
   handler.buildMap({ 
     provider: {mapTypeId: 'hybrid'},
-    internal: {id: 'test'}
+    internal: {id: 'show_map'}
     }, 
     function(){
     markers = handler.addMarkers([
@@ -106,7 +106,7 @@
     ])
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
+    handler.getMap().setCenter(new google.maps.LatLng(#{@post.latitude.to_json},  #{@post.longitude.to_json}));
     handler.getMap().setZoom(4);
   });
 
