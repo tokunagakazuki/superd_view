@@ -16,7 +16,7 @@
   &__description {
     width: 50%;
     text-align: center;
-    background-color: $gray;
+    border: double;
     padding: 1rem;
     &--title {
       font-size: 3rem;
@@ -59,4 +59,8 @@
   text-align: center;
   font-size: 2rem;
   padding: 1rem;
+}
+.bg--reset {
+  background-color: white;
+  border: double;
 }
