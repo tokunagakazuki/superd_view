@@ -4,35 +4,51 @@
       #close.close-btn
         .batsu
       - if  current_user?(@post.user)
-        .edit-btn
-          .edit-btn__v
-          %ul.edit-btn__list
-            -# %li.edit-btn__list__item= link_to "編集", edit_post_path(@post)
-            -# %li.edit-btn__list__item= link_to "投稿を削除する",                                                                              |
-              -# = post_path(@post, post_id: @post.id), method: "delete", remote: true, data: {confirm: "削除しますか？"} |
+        %ul.edit-btn__list
+          %li.edit-btn__list__item
+            = link_to "編集", edit_post_path(@post)
+          %li.edit-btn__list__item
+            = link_to "投稿を削除する" ,post_path(@post), method: "delete", data: {confirm: "削除しますか？"}
       .show
         .show__title
           = @post.title
-          = render 'likes/like_links', post: @post
         .show__image
           = image_tag @post.image.url
-        .show__description
-          = @post.description
-          - @post.tag_list.each do |tag|
-            = link_to tag, posts_path(tag_name: tag), class: "text-white"
-          = @post.user.name
-          #test{:style => "width: 50%; height: 50vh;"}
-          -# .form
-          -#   = form_for [@post, @comment] do |f|
-          -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-          -#     = f.submit 'Send', class: 'form__submit'
-          .comment-box
-            = render 'comments/form', comment: @comment, post: @post
-          #comments_area
-            コメント一覧
-            = render partial: 'comments/comment', collection: @comments
-          %span.comment_count.count
-            = render 'comments/count', post: @post
+        .show__sub
+          .show__description
+            .show__description--title
+              投稿の説明
+            .show__description--item
+              = @post.description
+          #show_map{:style => "width: 50%; height: 50vh;"}
+        /コメント情報
+        .show__sub
+          .show__box
+            .comments_area
+              .comments_area__title
+                コメント一覧
+              #comments_area
+                = render partial: 'comments/comment', collection: @comments
+              .comment-box
+                = render 'comments/form', comment: @comment, post: @post
+          .show__box
+            .contributor
+              .contributor__name
+                投稿者
+              = link_to @post.user.name, user_path(@post.user.id)
+            /タグ一覧
+            .ffff
+              .show__box--item
+                タグ一覧
+              .tag-items
+                - @post.tag_list.each do |tag|
+                  = link_to tag, posts_path(tag_name: tag), class: "text-white"
+              .count_box
+                コメント数
+                %span.comment_count.count
+                  = render 'comments/count', post: @post
+
+          
           -# = render 'likes/like_links', post: @post
       -# .picture-con
       -#   - @post.pictures.each do |picture|
@@ -95,7 +111,7 @@
   handler = Gmaps.build('Google');
   handler.buildMap({ 
     provider: {mapTypeId: 'hybrid'},
-    internal: {id: 'test'}
+    internal: {id: 'show_map'}
     }, 
     function(){
     markers = handler.addMarkers([
@@ -106,7 +122,7 @@
     ])
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
+    handler.getMap().setCenter(new google.maps.LatLng(#{@post.latitude.to_json},  #{@post.longitude.to_json}));
     handler.getMap().setZoom(4);
   });
 

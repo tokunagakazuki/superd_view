@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :title,:image,:description, presence: true
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   def self.search(search)
     if search

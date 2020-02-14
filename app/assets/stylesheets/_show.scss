@@ -5,5 +5,58 @@
     padding: 1rem;
   }&__image {
     text-align: center;
+    margin: 2rem;
   }
+  &__sub {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    width: 80%;
+  }
+  &__description {
+    width: 50%;
+    text-align: center;
+    background-color: $gray;
+    padding: 1rem;
+    &--title {
+      font-size: 3rem;
+      padding: 1rem;
+    }
+    &--item {
+
+    }
+  }
+  #comments_area {
+    height: 30rem;
+    overflow: scroll;
+  }
+  .comment__content {
+    border-bottom: groove;
+    text-align: center;
+  }
+  .comments_area {
+    &__title {
+      text-align: center;
+      font-size: 3rem;
+      padding: 1rem;
+    }
+  }
+}
+.show__box {
+  width: 50%;
+  text-align: center;
+  background-color: #CCCCCC;
+  padding: 1rem;
+}
+.contributor {
+  &__name {
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem;
+  }
+}
+.show__box--item {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
 }

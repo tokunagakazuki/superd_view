@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
-  def create_google_map_marker
+  def google_map
     @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
     marker.lat post.latitude
     marker.lng post.longitude
