@@ -12,7 +12,6 @@
       .show
         .show__title
           = @post.title
-          = render 'likes/like_links', post: @post
         .show__image
           = image_tag @post.image.url
         .show__sub
@@ -22,23 +21,34 @@
             .show__description--item
               = @post.description
           #show_map{:style => "width: 50%; height: 50vh;"}
-          -# .form
-          -#   = form_for [@post, @comment] do |f|
-          -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-          -#     = f.submit 'Send', class: 'form__submit'
+        /コメント情報
         .show__sub
-          .comments_area
-            .comments_area__title
-              コメント一覧
-            #comments_area
-              = render partial: 'comments/comment', collection: @comments
-            .comment-box
-              = render 'comments/form', comment: @comment, post: @post
-          - @post.tag_list.each do |tag|
-            = link_to tag, posts_path(tag_name: tag), class: "text-white"
-          = @post.user.name
-          %span.comment_count.count
-            = render 'comments/count', post: @post
+          .show__box
+            .comments_area
+              .comments_area__title
+                コメント一覧
+              #comments_area
+                = render partial: 'comments/comment', collection: @comments
+              .comment-box
+                = render 'comments/form', comment: @comment, post: @post
+          .show__box
+            .contributor
+              .contributor__name
+                投稿者
+              = link_to @post.user.name, user_path(@post.user.id)
+            /タグ一覧
+            .ffff
+              .show__box--item
+                タグ一覧
+              .tag-items
+                - @post.tag_list.each do |tag|
+                  = link_to tag, posts_path(tag_name: tag), class: "text-white"
+              .count_box
+                コメント数
+                %span.comment_count.count
+                  = render 'comments/count', post: @post
+
+          
           -# = render 'likes/like_links', post: @post
       -# .picture-con
       -#   - @post.pictures.each do |picture|

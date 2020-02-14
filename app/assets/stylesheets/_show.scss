@@ -5,6 +5,7 @@
     padding: 1rem;
   }&__image {
     text-align: center;
+    margin: 2rem;
   }
   &__sub {
     display: flex;
@@ -40,4 +41,22 @@
       padding: 1rem;
     }
   }
+}
+.show__box {
+  width: 50%;
+  text-align: center;
+  background-color: #CCCCCC;
+  padding: 1rem;
+}
+.contributor {
+  &__name {
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem;
+  }
+}
+.show__box--item {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
 }
