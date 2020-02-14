@@ -15,22 +15,28 @@
           = render 'likes/like_links', post: @post
         .show__image
           = image_tag @post.image.url
-          - @post.tag_list.each do |tag|
-            = link_to tag, posts_path(tag_name: tag), class: "text-white"
-          = @post.user.name
         .show__sub
-          #show_map{:style => "width: 50%; height: 50vh;"}
           .show__description
-            = @post.description
+            .show__description--title
+              投稿の説明
+            .show__description--item
+              = @post.description
+          #show_map{:style => "width: 50%; height: 50vh;"}
           -# .form
           -#   = form_for [@post, @comment] do |f|
           -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
           -#     = f.submit 'Send', class: 'form__submit'
-          .comment-box
-            = render 'comments/form', comment: @comment, post: @post
-          #comments_area
-            コメント一覧
-            = render partial: 'comments/comment', collection: @comments
+        .show__sub
+          .comments_area
+            .comments_area__title
+              コメント一覧
+            #comments_area
+              = render partial: 'comments/comment', collection: @comments
+            .comment-box
+              = render 'comments/form', comment: @comment, post: @post
+          - @post.tag_list.each do |tag|
+            = link_to tag, posts_path(tag_name: tag), class: "text-white"
+          = @post.user.name
           %span.comment_count.count
             = render 'comments/count', post: @post
           -# = render 'likes/like_links', post: @post

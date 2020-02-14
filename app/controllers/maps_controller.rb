@@ -2,7 +2,7 @@ class MapsController < ApplicationController
   layout "basic"
   def index
     @posts = Post.all
-    create_google_map_marker
+    google_map
   end
 
   def map
