@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  devise  :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable
+
+
+  validates :name, presence: true, length: { maximum: 10 }
+
   has_many :posts, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -22,10 +28,5 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
-
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise  :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable
+  
 end
