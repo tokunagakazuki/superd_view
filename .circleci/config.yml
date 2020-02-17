@@ -12,13 +12,14 @@ jobs:
           RAILS_ENV: test
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 3306
+          MYSQL_PASSWORD: 'password'
+
       - image: circleci/mysql:5.7.18
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_HOST: 127.0.0.1
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: circle_ci_test-test
+          MYSQL_DATABASE: superd_view-test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
