@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: password
-  host: db
+  # password: password
+  # host: db
   host: 127.0.0.1
 
 development:
@@ -27,6 +27,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: <%= ENV.fetch("DB_HOST") { 'db' } %>
   database: superd_view_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -52,7 +53,7 @@ test:
 
 production:
   <<: *default
-  # host: <%= Rails.application.credentials.rds[:host] %>
-  # database: <%= Rails.application.credentials.rds[:database] %>
-  # username: <%= Rails.application.credentials.rds[:username] %>
-  # password: <%= Rails.application.credentials.rds[:password] %>
+  host: <%= Rails.application.credentials.rds[:host] %>
+  database: <%= Rails.application.credentials.rds[:database] %>
+  username: <%= Rails.application.credentials.rds[:username] %>
+  password: <%= Rails.application.credentials.rds[:password] %>

@@ -10,11 +10,11 @@ jobs:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           RAILS_ENV: test
-          MYSQL_HOST: 127.0.0.1
+          DB_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: 'password'
 
-      - image: circleci/mysql:5.7.18
+      - image: circleci/mysql:5.6
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_HOST: 127.0.0.1
@@ -49,7 +49,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
 
-          
+
       # Database setup
       - run:
           name: Wait for DB
