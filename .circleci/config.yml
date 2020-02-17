@@ -19,14 +19,14 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_HOST: 127.0.0.1
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: superd_view-test
+          MYSQL_DATABASE: superd_view_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/circle-ci-test
+    working_directory: ~/superd_view
 
     steps:
       - checkout
