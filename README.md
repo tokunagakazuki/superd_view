@@ -49,7 +49,7 @@ https://app.superdview.com/
 - 検索機能(非同期通信)
 
 ### アーキテクチャ図
-
+<img width="1133" alt="スクリーンショット 2020-02-19 0 48 04" src="https://user-images.githubusercontent.com/56038993/74752152-99b9c880-52b1-11ea-8162-28e582e2ea39.png">
 
 ## アプリイメージ
 
