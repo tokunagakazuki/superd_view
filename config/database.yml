@@ -19,4 +19,4 @@ production:
   <<: *default
   database: superd_view_production
   username: test-app
-  password: <%= ENV['TEST-APP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SUPERD_VIEW_DATABASE_PASSWORD'] %>
