@@ -8,13 +8,10 @@ default: &default
 development:
   <<: *default
   database: superd_view_development
-  socket: /tmp/mysql.sock
 
 test:
   <<: *default
   database: superd_view_test
-  socket: /tmp/mysql.sock
-  host: <%= ENV['MYSQL_HOST'] %>
 
 production:
   <<: *default
