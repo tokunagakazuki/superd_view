@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: superd_view_production
+  database: <%= Rails.application.credentials.rds[:database] %>
   username: test-app
   password: <%= ENV['TEST-APP_DATABASE_PASSWORD'] %>
