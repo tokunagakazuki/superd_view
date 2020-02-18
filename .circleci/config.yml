@@ -12,13 +12,13 @@ jobs:
           RAILS_ENV: test
           MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
+          MYSQL_PASSWORD: password
           MYSQL_PORT: 3306
           BUNDLER_VERSION: 2.1.0
       - image: circleci/mysql:5.7.18
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: circle_ci_test-test
 
       # Specify service dependencies here if necessary
