@@ -16,7 +16,8 @@ default: &default
   username: root
   password:
   # host: db
-  host: 127.0.0.1
+  # host: 127.0.0.1
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -55,7 +56,8 @@ production:
   # host: <%= Rails.application.credentials.rds[:host] %>
   # database: <%= Rails.application.credentials.rds[:database] %>
   # username: <%= Rails.application.credentials.rds[:username] %>
-  password: <%= Rails.application.credentials.rds[:password] %>
+  # password: <%= Rails.application.credentials.rds[:password] %>
   database: superd_view_production
   username: root
-  # password: <%= ENV['SUPERD_VIEW_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
