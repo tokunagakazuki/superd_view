@@ -21,7 +21,7 @@ default: &default
 
 development:
   <<: *default
-  database: superd_view_development
+  database: test-app_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -38,9 +38,9 @@ production:
   # database: <%= Rails.application.credentials.rds[:database] %>
   # username: <%= Rails.application.credentials.rds[:username] %>
   # password: <%= Rails.application.credentials.rds[:password] %>
-  database: superd_view_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  database: test-app_production
+  username: test-app
+  password: <%= ENV['TEST-APP_DATABASE_PASSWORD'] %>
+
 
 
