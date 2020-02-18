@@ -7,7 +7,7 @@
 #   gem 'mysql2'
 #
 # And be sure to use new-style password hashing:
-#   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
+#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
   adapter: mysql2
@@ -15,20 +15,19 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
-  # host: db
-  # host: 127.0.0.1
   socket: /tmp/mysql.sock
+  host: <%= ENV['MYSQL_HOST'] %>
 
 development:
   <<: *default
-  database: superd_view_development
+  database: test-app_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: superd_view_test
+  database: test-app_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,15 +48,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-
-
 production:
   <<: *default
-  # host: <%= Rails.application.credentials.rds[:host] %>
-  # database: <%= Rails.application.credentials.rds[:database] %>
-  # username: <%= Rails.application.credentials.rds[:username] %>
-  # password: <%= Rails.application.credentials.rds[:password] %>
-  database: superd_view_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  database: test-app_production
+  username: test-app
+  password: <%= ENV['TEST-APP_DATABASE_PASSWORD'] %>
