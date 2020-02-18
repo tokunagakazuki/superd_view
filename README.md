@@ -23,7 +23,6 @@ https://app.superdview.com/
 - Nginx
 - Rspec
 - CircleCI
-- Capistrano
 - AWS(EC2, RDS for MySQL, S3, VPC, Route53, ALB, ACM)
 
 #### フロント
@@ -35,7 +34,7 @@ https://app.superdview.com/
 
 ## 機能一覧
 
-- CircleCI と Capistrano を用いた CI 機能
+- CircleCI
 - Rspec による自動テスト機能
 - ユーザー登録・ログイン機能（devise を使用）
 - 投稿機能(画像のアップロードに CarrierWave を使用)
@@ -52,5 +51,6 @@ https://app.superdview.com/
 <img width="1133" alt="スクリーンショット 2020-02-19 0 48 04" src="https://user-images.githubusercontent.com/56038993/74752152-99b9c880-52b1-11ea-8162-28e582e2ea39.png">
 
 ## アプリイメージ
-
+<img width="1680" alt="スクリーンショット 2020-02-19 0 58 32" src="https://user-images.githubusercontent.com/56038993/74753162-11d4be00-52b3-11ea-9d6d-9496d6669d3e.png">
+<img width="1668" alt="スクリーンショット 2020-02-19 0 58 15" src="https://user-images.githubusercontent.com/56038993/74753128-02ee0b80-52b3-11ea-8245-80e0d76666cb.png">
 
