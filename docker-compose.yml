@@ -2,31 +2,19 @@ version: '2'
 services:
   db:
     image: mysql:5.6
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
     volumes:
-      - mysql-data:/var/lib/mysql    
+      - mysql-data:/var/lib/mysql
     ports:
-      - "4306:3306" 
+      - "4306:3306"
 
   app:
-    tty: true          
-    stdin_open: true   
     build: .
     command: bundle exec puma -C config/puma.rb
-    # environment:
-    #   RAILS_ENV: production
     volumes:
-      - .:/superd_view    
-      - bundle:/usr/local/bundle    
+      - .:/superd_view
       - public-data:/superd_view/public
       - tmp-data:/superd_view/tmp
       - log-data:/superd_view/log
-    # ports:
-    #   - "3000:3000"
-    links:
-      - db
 
   web:
     build:
@@ -36,12 +24,8 @@ services:
       - tmp-data:/superd_view/tmp
     ports:
       - 80:80
-    depends_on:
-      - app
-
 volumes:
   mysql-data:
   public-data:
   tmp-data:
   log-data:
-  bundle:   
