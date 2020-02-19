@@ -16,7 +16,7 @@ services:
     build: .
     command: bundle exec puma -C config/puma.rb
     environment:
-      RAILS_ENV=production
+      RAILS_ENV: production
     volumes:
       - .:/superd_view    
       - bundle:/usr/local/bundle    
