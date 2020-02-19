@@ -13,7 +13,6 @@ development:
 test:
   <<: *default
   database: superd_view_test
-  host: <%= ENV['MYSQL_HOST'] %>
 
 production:
   <<: *default
