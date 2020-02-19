@@ -1,0 +1,32 @@
+version: '2'
+services:
+  db:
+    extends:
+      file: docker-compose.yml
+      service: db
+
+  app:
+    extends:
+      file: docker-compose.yml
+      service: app
+    volumes:
+      - .:/superd_view
+      - public-data:/superd_view/public
+      - tmp-data:/superd_view/tmp
+      - log-data:/superd_view/log
+    links:
+      - db
+    environment:
+      RAILS_ENV: test
+
+  web:
+    extends:
+      file: docker-compose.yml
+      service: web
+    depends_on:
+      - app
+volumes:
+  mysql-data:
+  public-data:
+  tmp-data:
+  log-data:
