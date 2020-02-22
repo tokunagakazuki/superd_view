@@ -48,65 +48,6 @@
                 %span.comment_count.count
                   = render 'comments/count', post: @post
 
-          
-          -# = render 'likes/like_links', post: @post
-      -# .picture-con
-      -#   - @post.pictures.each do |picture|
-      -#     = image_tag picture.url, class:"post-picture"
-      -# #map{:style => "width: 100%; height: 500px;"}
-      -# .post-footer
-      -#   .post-footer__content
-      -#     .post-user
-      -#       = image_tag @post.user.profile_image.url, class: "profile-image", size:"100"
-      -#       .post-user__profie
-      -#         = link_to @post.user.name, @post.user
-      -#         = render 'users/follow_form', user: @post.user
-      -#     .post-description
-      -#       %span= created_date(@post)
-      -#       = simple_format(@post.description)
-      -#     .post-activity
-      -#       %ul.activity-list
-      -#         %li.activity-list__item
-      -#           = image_tag 'comment.svg', class: "comment-icon"
-      -#           %span.comment_count
-      -#             = render 'comments/count', post: @post
-      -#         %li.activity-list__item.lav
-      -#           %span#like_form
-      -#             = render'likes/like_form', post: @post
-      -#           %span.like_count
-      -#             = render 'likes/like_count', post: @post
-      -#           %span#like_list
-      -#             = render "likes/like_list", post: @post
-      -#         %li.activity-list__item.lav
-      -#           = image_tag 'eye.svg', class: "eye-icon"
-      -#           = @post.footprints.count
-      -#           %ul.lav-lavel
-      -#             - @post.footprint_users.each do |user|
-      -#               %li.lav-lavel__list
-      -#                 %span
-      -#                   = link_to(user, class: "lav-lavel__list--link") do
-      -#                     = image_tag user.profile_image.url, class: "profile-image", size: "25"
-      -#                     %span.user-name= user.name
-      -#     .post-tags
-      -#       %h4 タグ一覧
-      -#       .post-tags__con
-      -#         - @post.tag_list.each do |tag|
-      -#           = link_to tag,posts_path(tag_name: tag), class: "post-tags__link"
-      -#   .post-footer__content
-      -#     .post-footer__content__comment
-      -#       .comment-box
-      -#         - if user_signed_in?
-      -#           = image_tag current_user.profile_image.url, class: "profile-image", size: "80"
-      -#           = render 'comments/form', comment: @comment, post: @post
-      -#         - else
-      -#           .request-login
-      -#             = link_to "ログインしてコメントを残す。", user_session_path , |
-      -#               class: "request-login__link"                  |
-      -#       #comment-error
-      -#         = render 'layouts/error_message', object: @comment
-      -#         = render partial: 'comments/comment', collection: @comments
--# = javascript_include_tag('post_close')
-
 :javascript
   handler = Gmaps.build('Google');
   handler.buildMap({ 
