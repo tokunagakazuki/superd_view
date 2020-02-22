@@ -4,11 +4,13 @@
       #close.close-btn
         .batsu
       - if  current_user?(@post.user)
-        %ul.edit-btn__list
-          %li.edit-btn__list__item
-            = link_to "編集", edit_post_path(@post)
-          %li.edit-btn__list__item
-            = link_to "投稿を削除する" ,post_path(@post), method: "delete", data: {confirm: "削除しますか？"}
+        .more
+          %i.fas.fa-sort-down
+            %ul.edit-btn__list
+              %li.edit-btn__list__item
+                = link_to "編集", edit_post_path(@post)
+              %li.edit-btn__list__item
+                = link_to "投稿を削除する" ,post_path(@post), method: "delete", data: {confirm: "削除しますか？"}
       .show
         .show__title
           = @post.title
@@ -20,7 +22,7 @@
               投稿の説明
             .show__description--item
               = @post.description
-          #show_map{:style => "width: 50%; height: 50vh;"}
+          #show_map{:style => "width: 50%; height: 50vh; margin: 1rem;"}
         /コメント情報
         .show__sub
           .show__box
@@ -66,4 +68,3 @@
     handler.getMap().setCenter(new google.maps.LatLng(#{@post.latitude.to_json},  #{@post.longitude.to_json}));
     handler.getMap().setZoom(4);
   });
-
