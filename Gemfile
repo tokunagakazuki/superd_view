@@ -81,3 +81,4 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'fog-aws'
 gem 'rspec_junit_formatter'
+gem "font-awesome-sass"
