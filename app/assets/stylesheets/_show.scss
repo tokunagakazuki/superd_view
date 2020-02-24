@@ -1,4 +1,5 @@
 .show {
+  margin-bottom: 3rem;
   &__title {
     font-size: 3rem;
     text-align: center;
@@ -18,6 +19,7 @@
     text-align: center;
     border: double;
     padding: 1rem;
+    margin: 1rem;
     &--title {
       font-size: 3rem;
       padding: 1rem;
@@ -47,6 +49,7 @@
   text-align: center;
   background-color: #CCCCCC;
   padding: 1rem;
+  margin: 1rem;
 }
 .contributor {
   &__name {
@@ -63,4 +66,36 @@
 .bg--reset {
   background-color: white;
   border: double;
+}
+.more {
+  cursor: pointer;
+  z-index: 2;
+  height: 100px;
+  width: 80px;
+  text-align: center;
+  &:hover ul.edit-btn__list {
+    display: block;
+  }
+  ul.edit-btn__list {
+    width: 80px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    li {
+      border-bottom: 1px solid #ddd;
+      &:last-child {
+        border-bottom: 0;
+      }
+      a {
+        display: block;
+        padding: 5px;
+        &:hover {
+          background-color: black;
+          color: #fff;
+        }
+      }
+    }
+  }
 }

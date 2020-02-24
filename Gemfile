@@ -43,6 +43,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker', "~> 2.8"
   gem 'simplecov'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
@@ -76,3 +81,4 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'fog-aws'
 gem 'rspec_junit_formatter'
+gem "font-awesome-sass"
