@@ -15,5 +15,6 @@ services:
       - app
 volumes:
   public-data:
+  bundle:
   tmp-data:
   log-data:
