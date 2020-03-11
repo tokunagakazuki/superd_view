@@ -18,5 +18,4 @@ class LikesController < ApplicationController
     @id_name = "#like-link-#{@post.id}"
     @id_heart = "#heart-#{@post.id}"
   end
-
 end

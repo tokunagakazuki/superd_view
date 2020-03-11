@@ -21,7 +21,7 @@
             .show__description--title
               投稿の説明
             .show__description--item
-              = @post.description
+              = simple_format(@post.description)
           #show_map{:style => "width: 50%; height: 50vh; margin: 1rem;"}
         /コメント情報
         .show__sub
