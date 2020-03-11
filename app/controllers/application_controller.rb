@@ -2,13 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
   def google_map
     @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
-    marker.lat post.latitude
-    marker.lng post.longitude
-    marker.infowindow post.title
-    marker.infowindow render_to_string(partial: 'shared/infowindow', locals: { post: post })
+      marker.lat post.latitude
+      marker.lng post.longitude
+      marker.infowindow post.title
+      marker.infowindow render_to_string(partial: 'shared/infowindow', locals: { post: post })
     end
   end
 

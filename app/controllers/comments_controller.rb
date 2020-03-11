@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
   end
 
-  
   private
 
   def set_post
