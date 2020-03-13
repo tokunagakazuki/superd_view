@@ -41,7 +41,6 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
-  gem 'faker', "~> 2.8"
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
@@ -68,6 +67,7 @@ gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'faker', "~> 2.8"
 gem 'fog-aws'
 gem "font-awesome-sass"
 gem 'geocoder'
