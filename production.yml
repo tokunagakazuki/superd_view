@@ -4,6 +4,10 @@ services:
     extends:
       file: docker-compose.yml
       service: app
+    volumes:
+      - .:/superd_view
+      - bundle:/usr/local/bundle
+      - public-data:/superd_view/public
     environment:
       RAILS_ENV: production
 
