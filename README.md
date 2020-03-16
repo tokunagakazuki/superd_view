@@ -53,3 +53,6 @@ https://app.superdview.com/
 <img width="1680" alt="スクリーンショット 2020-02-19 1 03 36" src="https://user-images.githubusercontent.com/56038993/74753737-e7cfcb80-52b3-11ea-88bc-d84bae9ba137.png">
 <img width="1680" alt="スクリーンショット 2020-02-19 1 03 46" src="https://user-images.githubusercontent.com/56038993/74753749-ebfbe900-52b3-11ea-833f-57cb73097ec8.png">
 
+### 制作背景
+日本以外の海外に出たことがなく海外への憧れが強く
+また、よくいろんな絶景を調べて見ることが好きなので自分にとっていいとこ取りのアプリを作りました。
