@@ -21,3 +21,33 @@ Post.create(
   tag_list: '東京,タワー,絶景',
   user_id: 1
 )
+
+Post.create(
+  title: 'ハワイ',
+  description: '一生の思い出',
+  image: open("#{Rails.root}/app/assets/images/posts/アメリカ/1.jpg"),
+  latitude: 21.3069,
+  longitude: -157.8583,
+  tag_list: 'ハワイ,海,絶景',
+  user_id: 2
+)
+
+Post.create(
+  title: 'エジプト',
+  description: '暑すぎた',
+  image: open("#{Rails.root}/app/assets/images/posts/エジプト/1.jpg"),
+  latitude: 26.8205,
+  longitude: 30.8024,
+  tag_list: 'エジプト,砂漠,絶景',
+  user_id: 7
+)
+
+Post.create(
+  title: 'エジプト',
+  description: '暑すぎた',
+  image: open("#{Rails.root}/app/assets/images/posts/エジプト/1.jpg"),
+  latitude: 26.8205,
+  longitude: 30.8024,
+  tag_list: 'エジプト,砂漠,絶景',
+  user_id: 7
+)
